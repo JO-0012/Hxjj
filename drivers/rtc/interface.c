@@ -624,9 +624,8 @@ int rtc_update_irq_enable(struct rtc_device *rtc, unsigned int enabled)
 			err = rtc->ops->alarm_irq_enable(rtc->dev.parent, 1);
 		if (err)
 			goto out;
-	} else {
+	} else
 		rtc_timer_remove(rtc, &rtc->uie_rtctimer);
-	}
 
 out:
 	mutex_unlock(&rtc->ops_lock);
