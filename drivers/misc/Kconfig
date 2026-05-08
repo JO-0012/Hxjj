@@ -664,6 +664,22 @@ source "drivers/misc/ocxl/Kconfig"
 source "drivers/misc/cardreader/Kconfig"
 source "drivers/misc/fpr_FingerprintCard/Kconfig"
 source "drivers/misc/qrc/Kconfig"
+
+config NTSYNC
+	tristate "NT synchronization primitives"
+  default y
+	help
+	  This module provides kernel support for emulation of Windows NT
+	  synchronization objects (semaphore, mutex, event). It is used by
+	  Windows emulation layers such as Wine/Proton to improve performance
+	  and compatibility of Windows applications running on Linux.
+
+	  If you are not running a Wine/Proton workload that requires ntsync,
+	  say N here.
+
+	  To compile this driver as a module, choose M here: the module
+	  will be called ntsync.
+
 endmenu
 
 config OKL4_USER_VIPC
