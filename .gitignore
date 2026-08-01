@@ -139,4 +139,13 @@ kernel/configs/android-*.cfg
 # Tech package directories
 #techpack/
 out/
+out_non_bpf/
 build.sh
+no3.sh
+dtbo_build.sh
+compile.sh
+KernelSU-Next/
+AnyKernel3/
+*.zip
+*.log
+
