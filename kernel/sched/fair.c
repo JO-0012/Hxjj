@@ -4968,7 +4968,7 @@ dequeue_entity(struct cfs_rq *cfs_rq, struct sched_entity *se, int flags)
 }
 
 static void
-set_next_entity(struct cfs_rq *cfs_rq, struct sched_entity *se, bool first)
+set_next_entity(struct cfs_rq *cfs_rq, struct sched_entity *se)
 {
 	clear_buddies(cfs_rq, se);
 
@@ -4983,8 +4983,7 @@ set_next_entity(struct cfs_rq *cfs_rq, struct sched_entity *se, bool first)
 		__dequeue_entity(cfs_rq, se);
 		update_load_avg(cfs_rq, se, UPDATE_TG);
 
-		if (first)
-			set_protect_slice(cfs_rq, se);
+		set_protect_slice(cfs_rq, se);
 	}
 
 	update_stats_curr_start(cfs_rq, se);
@@ -8333,7 +8332,7 @@ again:
 				pse = parent_entity(pse);
 			}
 			if (se_depth >= pse_depth) {
-				set_next_entity(cfs_rq_of(se), se, true);
+				set_next_entity(cfs_rq_of(se), se);
 				se = parent_entity(se);
 			}
 		}
@@ -12261,7 +12260,7 @@ static void set_next_task_fair(struct rq *rq, struct task_struct *p, bool first)
 	for_each_sched_entity(se) {
 		struct cfs_rq *cfs_rq = cfs_rq_of(se);
 
-		set_next_entity(cfs_rq, se, first);
+		set_next_entity(cfs_rq, se);
 		/* ensure bandwidth has been allocated on our new cfs_rq */
 		account_cfs_rq_runtime(cfs_rq, 0);
 	}
