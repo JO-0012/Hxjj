@@ -2614,7 +2614,7 @@ static int __net_init tcp_sk_init(struct net *net)
 	net->ipv4.sysctl_tcp_sack = 1;
 	net->ipv4.sysctl_tcp_window_scaling = 1;
 	net->ipv4.sysctl_tcp_timestamps = 1;
-#ifdef CONFIG_OPLUS_PORT
+#ifdef CONFIG_E404_OPLUS
 	net->ipv4.sysctl_tcp_random_timestamp = 1;
 #endif
 	net->ipv4.sysctl_tcp_early_retrans = 3;

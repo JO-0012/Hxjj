@@ -64,7 +64,7 @@ struct fscrypt_operations {
 			   void *fs_data);
 	const union fscrypt_context *(*get_dummy_context)(
 		struct super_block *sb);
-#ifdef CONFIG_OPLUS_PORT
+#ifdef CONFIG_E404_OPLUS
 	bool (*dummy_context)(struct inode *);
 #endif
 	bool (*empty_dir)(struct inode *inode);

@@ -12,7 +12,7 @@
 #include <linux/memcontrol.h>
 #include <linux/highmem.h>
 
-#ifdef CONFIG_OPLUS_PORT
+#ifdef CONFIG_E404_OPLUS
 extern int isolate_lru_page(struct page *page);
 extern void putback_lru_page(struct page *page);
 #endif
